@@ -13,6 +13,7 @@ def send_mail(from_address, to_address, subject, body):
                    body=body)
 
 
+
 # send an email with the EmailMessage class
 def send_mail_class(from_address, to_address, subject, body):
     message = mail.EmailMessage()
@@ -21,6 +22,13 @@ def send_mail_class(from_address, to_address, subject, body):
     message.subject = subject
     message.body = body
     message.send()
+
+# send an email with the send_mail_to_admins method
+def send_mail_admins(from_address, to_address, subject, body):
+    mail.send_mail_to_admins(sender=from_address,
+                             subject=subject,
+                             body=body)
+
 
 
 class SendMailHandler(webapp2.RequestHandler):
@@ -41,6 +49,8 @@ class SendMailHandler(webapp2.RequestHandler):
                 send_mail(from_address, to_address, subject, body)
             elif send_method == "class":
                 send_mail_class(from_address, to_address, subject, body)
+            elif send_method == "admin":
+                send_mail_admins(from_address, to_address, subject, body)
             else:
                 self.response.write('Invalid email method')
                 return
