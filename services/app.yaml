@@ -1,0 +1,10 @@
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /call_service1
+  script: main.app
+- url: /
+  static_files: index.html
+  upload: index.html

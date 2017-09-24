@@ -1,0 +1,8 @@
+runtime: python27
+api_version: 1
+threadsafe: yes
+service: service1
+
+handlers:
+- url: /.*
+  script: service1.service
