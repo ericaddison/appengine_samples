@@ -3,7 +3,7 @@ from google.appengine.api import urlfetch
 from google.appengine.api import app_identity
 import webapp2
 import urllib
-
+import json
 
 
 class MainHandler(webapp2.RequestHandler):
@@ -11,21 +11,35 @@ class MainHandler(webapp2.RequestHandler):
         appName = app_identity.get_application_id()
         self.response.content_type = 'text/html'
         try:
+            # create an rpc object from urlfetch
             rpc = urlfetch.create_rpc()
 
-            # HOW TO ADD PARAMS TO THE CALL???
+            # build the url used to call the service
+            # including the GET parameters sent with this request
             url = 'https://service1.' + appName + '.appspot.com?' + urllib.urlencode(self.request.GET)
-            urlfetch.make_fetch_call(rpc, url)
 
+            # make the service call
+            urlfetch.make_fetch_call(rpc, url)
             response = rpc.get_result()
+
+            # write out some info
             self.response.write("status code: " + str(response.status_code) + "<br>")
-            self.response.write("content: " + response.content + "<br>")
+            self.response.write("content: " + response.content + "<br><br>")
+
+            # store response as dictionary
+            data = json.loads(response.content)
+            for key in data:
+                self.response.write(key + ": " + data[key] + "<br>")
+
+            # return link
             self.response.write("<br><a href='/'>Go Back</a>")
 
-        except urlfetch.DownloadError:
-            self.response.write("Error!!!")
+        except urlfetch.DownloadError, e:
+            self.response.write("Download error!<br>")
+            self.response.write(e)
         except Exception, e:
-            print e
+            self.response.write("General error!<br>")
+            self.response.write(e)
 
 
 # define the "app" that will be referenced from app.yaml
