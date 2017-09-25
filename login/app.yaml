@@ -2,13 +2,10 @@ runtime: python27
 api_version: 1
 threadsafe: yes
 
-libraries:
-- name: ssl
-  version: 2.7
-
 handlers:
+- url: /userinfo
+  script: userinfo.app
 - url: /tokensignin
-  script: signin.app
+  script: tokensignin.app
 - url: /
-  static_files: index.html
-  upload: index.html
+  script: main.app
