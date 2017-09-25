@@ -7,6 +7,11 @@ https://ea-ut-apt-login.appspot.com/
 ## google account login with the `users` API
 Pretty simple ... used the `users` API to log in.
 
+** There is an interesing difference between this method and the token method... Not sure of the details, BUT, if I
+logout with the link you can get from the `users` API, then it logs me out of my other open google sessions in
+my browser as well! The token version does not do that, but if you are already logged into something else (say gmail),
+then the token version will just grab that and not even give you a choice about which account to use. Odd...
+
 ## google account login with a token
 Followed instructions
 https://developers.google.com/identity/sign-in/web/sign-in (including create clientID for Oauth)
