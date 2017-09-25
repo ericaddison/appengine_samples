@@ -2,7 +2,12 @@
 
 Practice logging in via other web accounts (e.g. Google account).
 
-## google account login
+https://ea-ut-apt-login.appspot.com/
+
+## google account login with the `users` API
+Pretty simple ... used the `users` API to log in.
+
+## google account login with a token
 Followed instructions
 https://developers.google.com/identity/sign-in/web/sign-in (including create clientID for Oauth)
 and here
@@ -19,3 +24,12 @@ I received an error about needing to turn on billing in my account! Here are som
 - doh! billing error!
 
 So I will just use the endpoint as decribed in the backend-auth link above...
+
+## Facebook login
+Added a Facebook login button after registering a new app as a Facebook developer (https://developers.facebook.com/apps).
+Can log in now, but I don't collect the token or anything yet...
+Also should take a look at this for a tutorial on how to post with FB: http://nodotcom.org/python-facebook-tutorial.html
+
+## github login
+nothing yet...
+
