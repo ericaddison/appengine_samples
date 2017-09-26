@@ -1,0 +1,11 @@
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /userinfo
+  script: userinfo.app
+- url: /tokensignin
+  script: tokensignin.app
+- url: /
+  script: main.app
