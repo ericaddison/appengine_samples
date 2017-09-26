@@ -3,9 +3,11 @@ api_version: 1
 threadsafe: yes
 
 handlers:
-- url: /userinfo
-  script: userinfo.app
 - url: /tokensignin
   script: tokensignin.app
+- url: /signout
+  script: tokensignin.app
+- url: /anotherPage
+  script: anotherPage.app
 - url: /
-  script: main.app
+  script: login.app
