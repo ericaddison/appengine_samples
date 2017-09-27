@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <h1>Added User {{user.firstName}} {{user.lastName}}</h1>
+    User key is {{ user_key }}
+  <br>
+    <a href="/listUsers">List All Users</a>
+  <br>
+    <a href="/">Go Back</a>
+  </body>
+</html>
+{% endautoescape %}

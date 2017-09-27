@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+    <title>{{ title }}</title>
+  </head>
+  <body>
+    <h1>Let's use some NDB!</h1>
+    <h3> User Information</h3>
+    <form action="/addUserInfo" method="post">
+      First Name:<br>
+      <input value="" name="fname"><br><br>
+      Last Name:<br>
+      <input value="" name="lname"><br><br>
+      Email:<br>
+      <input value="" name="email"><br><br>
+      Things you like (comma separated list):<br>
+      <input value="" name="likes" size="50"><br><br>
+      <input type="submit" value="make item">
+    </form>
+    <br>
+    <a href="/listUsers">List All Users</a>
+  </body>
+</html>
+{% endautoescape %}

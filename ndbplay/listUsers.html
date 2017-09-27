@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+{% autoescape true %}
+<html>
+  <head>
+    <title>List of Users</title>
+  </head>
+  <body>
+    <h1>All Users</h1>
+    Users:
+    {% for user in users %}
+    <p>{{ user.firstName }} {{user.lastName}} {{user.email}} {{user.likes}}</p>
+    {% endfor %}
+    <br>
+    <a href="/">Go Back</a>
+  </body>
+</html>
+{% endautoescape %}
